@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Moving Tables With pg_dump</title>
+<link rel="stylesheet" type="text/css" href="../default.css">
+</head>
+<body>
+<h1>Moving Tables With pg_dump</h1>
+
+<p align=left>In the course of my work, I spend a fair bit of time working in a local PostGIS instance.  Although we have a large chunk of iron with PostGIS installed on it, I'm not a fan of using it to prep data.  I also tend to make a large number of temporary tables as I work and I feel more comfortable keeping track of them on my local workstation.  However, this also means that I'm moving data from one database to another quite frequently.
+
+<p align=left>Generally, I've done this by dumping a table out as a shapefile, running <i>shp2pgsql</i> against it to generate a SQL insert file, and then loading that file with <i>psql</i> into the new DB.  This works, but is annoying for several reasons.  For one thing, it means working with the shapefile format, which messes up the table schema on columns. The classic example of this is with integer columns getting converted to floating point values in the shapefile.  That generally causes the need for additional rework once the data is on the new database, or at a minimum, makes for a tedious QA process to ensure that data is correctly typed.  There has to be a better way.
+
+<p align=left>What I really wanted to be able to do is dump the table directly from PostGIS into a SQL insert file, preserving the table schema and eliminating the need for a shapefile.  I'd used <i>pg_dump</i> before to dump and backup entire DB's before, but would it work for a single table, one located in a public schema?  Turns out that it does.
+
+<p align=left>To make this work, you have to run pg_dump with the following arguments:
+<pre>pg_dump --file=[output_file] --table=[table_name] --inserts --no-owner [db_name]</pre>
+
+<p align=left>Then, you have to comment out, or delete, 2 lines in the <i>[output_file]</i>. (The "--" comments out in SQL):
+<pre align=left>-- SET search_path = public, pg_catalog;</pre>
+<pre align=left>-- SET default_tablespace = '';</pre>
+
+<p align=left>After that, you can move that output file wherever you want and load it like this:
+<pre align=left>psql -d [dbname] -f [output_file]</pre>
+</body>
+</html>
+

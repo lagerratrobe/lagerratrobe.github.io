@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Building GDAL with MrSID Support</title>
+<link rel="stylesheet" type="text/css" href="../default.css">
+</head>
+<body>
+<h1>Building GDAL with MrSID Support</h1>
+
+<h2 align=left>What is MrSID?</h2>
+
+<p align=left>(Multiresolution Seamless Image Database) Wavelet compressed image format which can be quickly viewed without having to decompress the entire file.  
+<ul align=left>
+	<li>There is no open source implementation of the MrSID format.</li>
+	<li>The Decode Software Development Kit (SDK) is made available as a free download from LizardTech</li>
+</ul>
+<p align=left>The SDK enables the capability to implement MrSID reading capability in any application.
+
+<h2 align=left>What is GDAL?</h2>
+
+<p align=left>(Geographic Data Abstraction Library)  Software library for reading and writing raster geospatial data formats.  
+<ul align=left>
+	<li>Used in all sorts of things.</li>
+	<li>Does not support MrSID out-of-the-box</li>
+</ul>
+
+<h2 align=left>What is goal of the talk?</h2>
+
+<p align=left>To illustrate how GDAL can be made to work with MrSID data. 
+<ul align=left>
+	<li>Will briefly go over how to get the MrSID SDK from LizardTech</li>
+	<li>How to "install it"</li>
+	<li>How to build (compile) GDAL with SDK</li>
+</ul>
+
+<h2 align=left> Step 1: Download the LizardTech DSDK</h2>
+<p align=left>Can be obtained from the <a href="https://www.lizardtech.com/developer">Developer page</a>
+
+<h2 align=left>Step 2: "Install" MrSID SDK</h2>
+<pre align=left>
+$ cd mrsid
+$ tar xzvf MrSID_DSDK-9.1.0.4045-linux.x86-64.gcc44.tar.gz
+$ cd MrSID_DSDK-9.1.0.4045-linux.x86-64.gcc44/
+$ cd Raster_DSDK/
+$ cd lib
+</pre>
+
+<p align=left>Need to do a bit of fixing and futzing now.
+<pre align=left>
+ rwxrwxrwx 1 chronos chronos      18 Jun 19  2014 libgeos_c.so -> libgeos_c.so.1.1.1*
+lrwxrwxrwx 1 chronos chronos      18 Jun 19  2014 libgeos_c.so.1 -> libgeos_c.so.1.1.1*
+-rwxr-xr-x 1 chronos chronos   64119 Jun 18  2014 libgeos_c.so.1.1.1*
+lrwxrwxrwx 1 chronos chronos      16 Jun 19  2014 libgeos.so -> libgeos.so.2.2.3*
+lrwxrwxrwx 1 chronos chronos      16 Jun 19  2014 libgeos.so.2 -> libgeos.so.2.2.3*
+-rwxr-xr-x 1 chronos chronos 1374498 Jun 18  2014 libgeos.so.2.2.3*
+lrwxrwxrwx 1 chronos chronos      15 Jun 19  2014 libltidsdk.so -> libltidsdk.so.9*
+-rwxr-xr-x 1 chronos chronos 5962084 Jun 18  2014 libltidsdk.so.9*
+lrwxrwxrwx 1 chronos chronos      11 Jun 19  2014 libtbb.so -> libtbb.so.2*
+-rwxr-xr-x 1 chronos chronos 1739300 Jun 18  2014 libtbb.so.2*
+</pre>
+<p align=left>(Need to get rid of all these symbolic links and replace them with real files. Also, we don't need the libgeos files, since geos is already on the system.)
+
+<pre align=left>
+$ rm libgeos*
+$ rm libltidsdk.so
+$ rm libtbb.so
+$ cp libltidsdk.so.9 libltidsdk.so
+$ cp libtbb.so.2 libtbb.so
+</pre>
+
+<p align=left>Which leaves us with:
+<pre align=left>
+-rwxr-xr-x 1 chronos chronos 5962084 Aug 19 14:08 libltidsdk.so*
+-rwxr-xr-x 1 chronos chronos 5962084 Jun 18  2014 libltidsdk.so.9*
+-rwxr-xr-x 1 chronos chronos 1739300 Aug 19 14:08 libtbb.so*
+-rwxr-xr-x 1 chronos chronos 1739300 Jun 18  2014 libtbb.so.2*
+</pre>
+
+<p align=left>Also need to copy these files over to somewhere in $LD_LIBRARY_PATH
+<pre align=left>
+$ echo $LD_LIBRARY_PATH
+/usr/local/lib:/usr/local/lib64
+
+$ cp lib* /usr/local/lib64/
+</pre>
+<h2 align=left>Step 3: Build GDAL</h2>
+<ul align=left>
+	<li>Some info here at <a href="http://www.gdal.org/frmt_mrsid.html">gdal MrSID Driver page</a> (unfortunately, this contains nothing useful)</li>
+	<li>"--with-mrsid" in Chromebrew recipe</li>
+</ul>
+<pre align=left>
+  $ crew search gdal
+  $ crew install gdal
+</pre>
+
+<h2 align=left>Step 4: Use it</h2>
+<p align=left>Anyone have some sample MrSID files?
+</body>
+</html>
