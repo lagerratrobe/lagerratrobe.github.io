@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Getting Started</title>
+<link rel="stylesheet" type="text/css" href="../default.css">
+</head>
+<body>
+<h1>Getting Started</h1>
+<h2 align="left">Picking a Course</h2>
+<p align="left">Having decided that taking a Data Science course would be a good way to expand upon and improve my Python skills, I did some research and found some very positive reviews for a <strong><a href="https://www.udacity.com/course/intro-to-data-analysis--ud170">Python-based Data Analysis course</a></strong> from Udacity. While Data Analysis is not Data Science, from what I understand, Data Science encompasses the Analysis component. The truth is that I'm a bit fuzzy on the semantics between the 2 disciplines, especially as they seem to share many of the same characteristics. The <strong><a href="https://www.class-central.com/mooc/4937/udacity-intro-to-data-analysis">course overview</a></strong> about the Udacity Intro to Data Analysis class sounded good though and I settled on it as my starting point.</p>
+<h2 align="left">Familiarizing myself with the ecosystem</h2>
+<p align="left" >Any discipline has a preferred set of tools that the practitioners wield in pursuit of their craft. The Python sect of the Data Science discipline is no exception. A few tools that seemed to crop up over and over in my research were:</p>
+
+<ul>
+<li align="left">iPython/Jupyter (and their corresponding "notebooks")
+<li align="left">Numpy</li>
+<li align="left">Matplotlib</li>
+<li align="left">Pandas</li>
+<li align="left">Seaborn</li>
+</ul>
+<p align="left">Of these, the only tool I had some passing familiarity with was Matplotlib, which I had used in the past at 3Tier to create <strong><a href="https://energytransition.org/files/2015/04/average_wind_speed_uk_vs_germany.jpg">color bars like these</a></strong> to describe custom heat maps I had created from wind speed and solar reflectance data. I was excited to learn something new, but how was I going to get all these things installed?</p>
+    <h2 align="left">Anaconda to the rescue</h2>
+<p align="left">For the past several years, my primary personal computer has been a Chromebook Pixel. I love that machine! It has an amazing display, it's very fast, and it has exceptional battery life. It does of course have some trade-offs, the main one being that you can only install applications from the Chrome Web Store. Well, it turns out that's not entirely correct. You can run the machine (and any other Chromebook, I assume) in "Developer Mode", which then gives you access to a shell. From that shell, people have discovered all sorts of ways to install applications and utilities in the same manner that you would install them from a command line on a Linux machine. In fact, one of the things I played with soon after discovering this capability was <strong><a href="http://skycocker.github.io/chromebrew/">Chromebrew</a></strong>, which is an analog to the Mac "Homebrew" system. While Chromebrew made the installation of certain things convenient, like Vim and base Python, many Python libraries have complex dependencies that I had trouble overcoming. It turns out that Conda was developed specifically to address this problem.</p>
+The best descriptions I've read of how Conda works and why it was created are in blog posts by <a href="https://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/">Jake Vanderplas</a> and <a href="http://technicaldiscovery.blogspot.com/2013/12/why-i-promote-conda.html">Travis Oliphant</a>. Both of these guys know what they're talking about and are worth looking up if you're interested in Data Science. Jake is the Director of Research at the UW Data Science Institute and has written a book that I intend to buy, the <a href="http://shop.oreilly.com/product/0636920034919.do">Oreilley Python Data Science Handbook</a>. Travis, among other things, is the <a href="https://en.wikipedia.org/wiki/Travis_Oliphant">primary creator</a> of NumPy. In a nutshell though, Conda is a package manager that allows you to easily install all of the tools that are needed for Python Data Science work. That's a sufficient description for our purposes now. Anaconda, which is what we'll be installing, is a distribution that contains conda, as well as some other things, like Jupyter, which is a browser-based interactive notebook for programming, mathematics, and data science. Jupyter makes working with the Udacity class materials much easier and I think is probably required to do the course.</p>
+
+    <h2 align="left">Installing Anaconda on a Chromebook</h2>
+<p align="left">I followed the general instructions listed on this Reddit page. Basically that can be summed up as:<br>
+    <ol align="left">
+        <
+Download the 64-bit version of Anaconda that you want (Python 3 or Python 2.7) from here into your Downloads directory.
+Open a shell in your Chromebook by holding 'Ctl Alt T' and the typing "shell"
+In the resulting shell that opens do the following:
+cd /usr
+sudo chmod a+rw local
+cp ~/Downloads/Anaconda2-4.4.0-Linux-x86_64.sh ./
+bash ./Anaconda2-4.4.0-Linux-x86_64.sh
+That's it. You can test that conda is in your path by typing
+which conda
+and getting back
+/usr/local/anaconda2/bin/conda
+Setting up a new virtual environment
+Now that you have Anaconda installed, it's time to create a virtual environment. You can enter the virtual environment from anywhere, but for clarity, I'm going to assume a known starting location of ~/Downloads.
+Open a shell and type the following
+mkdir ~/Downloads/code/udata_a1
+cd ~/Downloads/code/udata_a1
+conda create -n udata_a1
+source activate udata_a1
+You should see your prompt change after running the source activate command to something like this:
+(udata_a1) chronos@localhost ~/Downloads/code/udata_a1
+This means that you are inside the vitial environment named "udata_a1". You can exit your virtual environment by typing,
+source deactivate udata_a1
+and your prompt should return to normal.
+Install specific packages
+Installing the packages needed for the class is pretty easy. You simply activate an environment and then execute the following command:
+conda install python=2.7 numpy pandas matplotlib seaborn
+This will install all of the specified items, as well as any dependencies that they need. You can verify they're installed using the conda list command.
+conda list
+matplotlib                2.0.2               np113py27_0
+numpy                     1.13.0                   py27_0
+pandas                    0.20.2              np113py27_0
+python                    2.7.13                        0
+python-dateutil           2.6.0                    py27_0
+seaborn                   0.7.1                    py27_0
+etc.
+NOTE that I truncated the output of the full listing for clarity.
+Start up Jupyter notebook
+Now all that's left to do is fire up Jupyter notebook and connect to it in a browser using the address it gives you.
+jupyter notebook --no-browser
+[I 21:27:47.307 NotebookApp] Serving notebooks from local directory: /home/chronos/user/Downloads/code/udata_a1
+[I 21:27:47.307 NotebookApp] 0 active kernels
+[I 21:27:47.307 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/?token=51e3efe3138160ae4d7aecfa19b4ee858a940d67bfecd57d
+[I 21:27:47.307 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 21:27:47.307 NotebookApp]
+
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=51e3efe3138160ae4d7aecfa19b4ee858a940d67bfecd57d
+From there you can open .ipynb files or explore the contents of the directory from which you started the notebook server.
+
+<h1>Moving Tables With pg_dump</h1>
+
+<p align=left>In the course of my work, I spend a fair bit of time working in a local PostGIS instance.  Although we have a large chunk of iron with PostGIS installed on it, I'm not a fan of using it to prep data.  I also tend to make a large number of temporary tables as I work and I feel more comfortable keeping track of them on my local workstation.  However, this also means that I'm moving data from one database to another quite frequently.
+
+<p align=left>Generally, I've done this by dumping a table out as a shapefile, running <i>shp2pgsql</i> against it to generate a SQL insert file, and then loading that file with <i>psql</i> into the new DB.  This works, but is annoying for several reasons.  For one thing, it means working with the shapefile format, which messes up the table schema on columns. The classic example of this is with integer columns getting converted to floating point values in the shapefile.  That generally causes the need for additional rework once the data is on the new database, or at a minimum, makes for a tedious QA process to ensure that data is correctly typed.  There has to be a better way.
+
+<p align=left>What I really wanted to be able to do is dump the table directly from PostGIS into a SQL insert file, preserving the table schema and eliminating the need for a shapefile.  I'd used <i>pg_dump</i> before to dump and backup entire DB's before, but would it work for a single table, one located in a public schema?  Turns out that it does.
+
+<p align=left>To make this work, you have to run pg_dump with the following arguments:
+<pre>pg_dump --file=[output_file] --table=[table_name] --inserts --no-owner [db_name]</pre>
+
+<p align=left>Then, you have to comment out, or delete, 2 lines in the <i>[output_file]</i>. (The "--" comments out in SQL):
+<pre align=left>-- SET search_path = public, pg_catalog;</pre>
+<pre align=left>-- SET default_tablespace = '';</pre>
+
+<p align=left>After that, you can move that output file wherever you want and load it like this:
+<pre align=left>psql -d [dbname] -f [output_file]</pre>
+</body>
+</html>
+
