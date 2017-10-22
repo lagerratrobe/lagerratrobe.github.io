@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Leaflet NEXRAD</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../leaflet.css" />
+</head>
+<body>
+	<div id="map" style="width: 100%; height: 100%"></div>
+	<script src="../leaflet.js"></script>
+  <script src="../leaflet.ajax.min.js"></script>
+	<script>
+	
+		var mapOptions = {
+			center: new L.LatLng(40.606, -105.332),
+			zoom: 5,
+			crs: L.CRS.EPSG3857,
+			attributionControl: false,
+    		};
+    		
+		var map = L.map('map', mapOptions);
+		
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+		id: 'mapbox.light'
+	}).addTo(map);
+
+		var radar = 'https://radar.weather.gov/ridge/Conus/RadarImg/latest_radaronly.gif',
+    		        imageBounds = [[21.6435524102082885, -127.6293611764705755], [50.3976407147058885, -66.5269235294131755]];
+		L.imageOverlay(radar, imageBounds).addTo(map);
+
+
+		map.on('click', onMapClick);
+	</script>
+</body>
+</html>
+
