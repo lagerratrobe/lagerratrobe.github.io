@@ -31,6 +31,73 @@
     <div class="content pure-u-1 pure-u-md-3-4">
         <div>
             <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                          <h1 class="content-subhead">Feb 5, 2018</h1>
+                          <section class="post">
+                              <header class="post-header">
+                                  <h2 class="post-title"><a name="wsl_jupyter_r">Running R in Linux Anaconda on Windows WSL</a></h2>
+                                  <p class="post-meta">By <a class="post-author" href="#">Roger Andre</a> </p>
+                              </header>
+                              <div class="post">
+<p>I prefer running R in Jupyter over using RStudio - no contest. I get intelligent formatting, direct access to help files and nice looking output which I can easily save to HTML and share.  By far the easiest way to get Jupyter running is to install Anaconda.  There are installers for WIndows, Mac and Linux and I've tried both the Windows and Linux binaries.  Personally, I find that using the Windows binaries for Anaconda is as annoying as using Git for Windows.  I just can't see the point of having all those specialized cmd shells for each program.  I much prefer just getting the Linux installer from Continuum and installing it in the Ubuntu WSL environment that's available in Windows 10 now.  Here are the steps to do that.</p>
+
+<p><em><strong>NOTE:</strong></em> This assumes that you have already enabled the Windows Subsystem for Linux (WSL).</p>
+
+<p><strong>I.</strong> Open your Ubuntu terminal by hitting the Windows key and "R" at the same time and type, <em>bash</em>.</p>
+
+<p><strong>II.</strong> Downloaded the latest Anaconda installer for Linux from Continuum:</p>
+<pre><code>    $ wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh</code></pre>
+
+<p><strong>III</strong>. Install the file by running it and deciding where you want to install it.  I installed it in <em>/usr/local</em>, which means that you'll have to execute the installer as sudo and specify a different install directory than the default.  (The default option works just fine though.)</p>
+<pre><code>    $ sudo bash ./Anaconda3-5.0.1-Linux-x86_64.sh</code></pre>
+
+<p>You'll be prompted to accept the license agreement and then to either install in the default location, or in a place of your choosing.  Either way, at the end of the install you'll be asked if you want to add the path to anaconda in your local path.  Unless you know otherwise, say "Yes".</p>
+
+<p><strong>IV.</strong> Optional:  Add the <em>anaconda3/bin</em> path to securepath with visudo so that you can install conda pkgs later using sudo: (This is not needed if you installed to the default location.)</p>
+
+<pre><code>    $ sudo visudo
+Add "/usr/local/anaconda3/bin" to securepath line.
+</code></pre>
+
+<p><strong>V.</strong>  Install some packages needed to make labels appear on R plots:</p>
+
+<pre><code>    $ sudo apt-get install libxrender-dev
+    $ sudo apt-get install libxext-dev
+    $ sudo apt-get install libcairo2-dev
+</code></pre>
+
+<p><strong>VI.</strong> Install R essentials and an R kernel:</p>
+
+<pre><code>    $ sudo conda install r-essentials
+    $ sudo conda install r-irkernel
+</code></pre>
+
+<p><strong>VII.</strong> Run it!</p>
+
+<pre><code>    $ jupyter notebook --no-browser
+
+[I 07:21:31.271 NotebookApp] JupyterLab alpha preview extension loaded from /usr/local/anaconda3/lib/python3.6/site-packages/jupyterlab
+JupyterLab v0.27.0
+Known labextensions:
+[I 07:21:31.288 NotebookApp] Running the core application with no additional extensions or settings
+[I 07:21:31.331 NotebookApp] Serving notebooks from local directory: /mnt/c/Code/data_science
+[I 07:21:31.333 NotebookApp] 0 active kernels
+[I 07:21:31.334 NotebookApp] The Jupyter Notebook is running at: http://localhost:8888/?token=11da29db9d864e64a9377a5a479c4b98a52c32bc286c959a
+</code></pre>
+<br>
+<div class="pure-u-1 pure-u-md-1-2" align="center">
+  <a href="./wsl_jupyter_r.png" target="_blank">
+        <img alt="Jupyter running in Edge on Win 10"
+             class="pure-img-responsive"
+             src="./wsl_jupyter_r.png">
+           </a>
+    <div class="post-image-meta">
+        <h3>Jupyter running in Edge on Win 10</h3>
+    </div>
+</div>
+          </div>
+        </div>
+    </section>
 <div class="posts">
               <h1 class="content-subhead">Feb 3, 2018</h1>
               <section class="post">
