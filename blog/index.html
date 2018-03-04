@@ -32,6 +32,67 @@
         <div>
             <!-- A wrapper for all the blog posts -->
             <div class="posts">
+                          <h1 class="content-subhead">Mar 3, 2018</h1>
+                          <section class="post">
+                              <header class="post-header">
+                                  <h2 class="post-title"><a name="map_implosion_1">Making a Map - Where to start?</a></h2>
+                                  <p class="post-meta">By <a class="post-author" href="#">Roger Andre</a> </p>
+                              </header>
+                              <div class="post">
+                                <p>A sentiment I've heard expressed a few times recently and one which I've felt myself is, <em>"Where do I start?"</em>.  With so many options in mapping technology available now, all slickly marketed and hyped to death, it can feel overwhelming for someone trying to get started.  The answer, of course, is to start from the beginning. </p>
+                                <p><em>What are you trying to show, and how do you want to communicate it to your audience?</em>  These 2 things should help you decide what tool or platform to use.  Here are some questions to consider related to these.</p>
+                                <ol>
+                                <li>How much of the globe and what part of it are you interested in showing?</li>
+                                <li>What do you need to show?</li>
+                                <li>How are you going to style your map?</li>
+                                <li>How are you going to present your map?</li>
+                                </ol>
+                                <h4>How much of the globe and what part of it are you interested in showing?</h4>
+                                <p>This makes a difference with regards to the map projection that will work best for you.  Don't know what a map projection is? No problem.  Find a tennis ball and a flat piece of paper.  The ball is the Earth, the paper is your computer screen. Now wrap the ball with the paper.  Doesn't look like very good, does it?  A map projection is the shape-shifting mathematical voodoo that allows your rectangular computer screen (and in ye olden days, a paper map) to display a section of (or the entire) ball in a way that doesn't necessitate you dropping acid to make sense of what you're seeing.  The more of the ball that you want to show in your map, the more the projection matters.  </p>
+                                <div class="pure-u-1 pure-u-md-1-2" align="center">
+                                  <a href="https://www.learner.org/courses/mathilluminated/units/8/textbook/05.php" target="_blank">
+                                        <img alt="Map Projections"
+                                             class="pure-img-responsive"
+                                             src="./paper_ball.png">
+                                           </a>
+                                           <div class="post-image-meta">
+                                               <h3>How this junk works</h3>
+                                           </div>
+                                </div>
+                                <p>The other factor I mentioned here was what part of the globe you're trying to show.  This matters, again, because of the map projection.  Basically, the closer your area of interest is to the poles and the bigger that area is, the fewer of the <em>NewMappingHotness.com</em> options will work for you.  This is because most of them only support 2 projections that start to look like crap when you get North of Edmonton, CAN.  Pretty much the hardest thing to show in <em>NewMappingHotness</em> is something like a <a href="https://earthobservatory.nasa.gov/IOTD/view.php?id=87528">map of polar ice recession</a>.  You can see why pretty easily, just fire up Google Maps and do a search for, "The North Pole".  Good luck with that.  It's not that Google Maps is bad, it's just that in order to give you a map that let's you zoom in to (almost) any other part of the ball, something has to give and it's the Poles.  (BTW, Bing maps will at least try take you there, but it's still goofy looking.)</p>
+                                <div class="pure-u-1 pure-u-md-1-2" align="center">
+                                  <a href="./polar.png" target="_blank">
+                                        <img alt="Polar Ice Map"
+                                             class="pure-img-responsive"
+                                             src="./polar.png">
+                                           </a>
+                                </div>
+                                <h4>What do you need to show?</h4>
+                                <p>"A map", you say.  Well yes... but what things do you need <strong>on</strong> the map in order for you to tell your story?  Everything on <strong>your</strong> map should be there to help tell the story.  Look at these maps of <a href="https://www.nytimes.com/interactive/2016/05/18/us/chicago-murder-problem.html">murders in Chicago and New York by the NY Times</a>.  Everything on them  helps the reader to see where most murders take place, or where most segregation exists.  There is only enough data on each map to tell these stories and nothing else.  Roads, parks and water aren't labeled and there's only enough information there for a reader to make out where in the city they are looking.  These are beautiful maps that do their job well.  In order for your map to be effective, you need to identify the geographic features that <strong>you</strong> think are needed.  And that means that anything that you don't explicity identify has to go.  This will eliminate some of your options, as only a few of the <em>NewMappingHotness.com</em> platforms allow you to turn layers off.</p>
+                                <div class="pure-u-1 pure-u-md-1-2" align="center">
+                                  <a href="./murders.png" target="_blank">
+                                        <img alt="NY Times Murders"
+                                             class="pure-img-responsive"
+                                             src="./murders.png">
+                                           </a>
+                                </div>
+                                <h4>How are you going to style your map?</h4>
+                                <p>This is entirely a function of what your're trying to show and what features you think need to be on the map to provide context.  For example, if I were going to make a map that showed all the public bathrooms on Naxos (Greek island in the Aegean), I would need to style the map differently than the Murder Capital map I mentioned above.  I would need to make the bathrooms very visible in contrast to the rest of the map, and I would need to have enough other features on the map that people could find the bathrooms, and I probably would need some labels as well.  And what if there were different kinds of bathrooms and I wanted to color them differently, maybe "flush" versus "hole in the ground"? And what if I wanted to also call out that some were "one-holers" versus "party-poopers"?  Maybe I'd use color to indicate type, and make the size of the dot proportional to the number of stalls, or something like that.  This again is something that will help you decide what tool to use.  Some make this sort of thing easier than others.</p>
+
+                                <h4>And finally, how are you going to present your map?</h4>
+                                <p>Is it going to be in a Web page, maybe on a blog that gets read both in mobile and other browsers?  Or is it going to be a figure in a PDF document that gets scaled up and down in size when it's read?  Or maybe it's actually going to be printed on paper?  (That bathroom map isn't very handy on an electronic device while you're wandering around Naxos on foot.)  Probably it will be a combination of those things.  The point being that you might need different output formats and not all mapping platforms support them.</p>
+                                <p>So to sum up this monologue, before you implode from trying to decide which of the myriad of cool new toys to try out, figure out what you actually want to make first.  Once you have an idea, look for examples that are similar and see if you can determine how they were made.  Trust me, you're not that original.  Most of the <a href="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png">really cool maps</a> were made before computers and we're all just trying to catch up to what they made back then.</p>
+                                <div class="pure-u-1 pure-u-md-1-2" align="center">
+                                  <a href="./Minard.png" target="_blank">
+                                        <img alt="Napoleon's March"
+                                             class="pure-img-responsive"
+                                             src="./Minard.png">
+                                           </a>
+                                </div>
+                                <p>In my next post, I'll go through the process I described here and will make a map using a few different tools.</p>
+                           </div>
+                       </section>
+            <div class="posts">
                           <h1 class="content-subhead">Feb 5, 2018</h1>
                           <section class="post">
                               <header class="post-header">
