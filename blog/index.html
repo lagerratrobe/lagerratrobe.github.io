@@ -32,6 +32,42 @@
         <div>
             <!-- A wrapper for all the blog posts -->
             <div class="posts">
+            <h1 class="content-subhead">Apr 05, 2018</h1>
+            <section class="post">
+            <header class="post-header">
+              <h2 class="post-title"><a name="jupyter_lab">I'm not ready for Jupyter Lab</a></h2>
+              <p class="post-meta">By <a class="post-author" href="#">Roger Andre</a> </p>
+            </header>
+            <div class="post">
+            <p>It's the latest thing from the people that brought you Jupyter Notebooks, but it has a few quirks that I can't seem to get used to.  Chief among them is that in the interest of security, they've blocked inline Javascript from executing.  This manifests itself when you try to run old notebooks and get this, instead of the graph you were expecting:</p>
+
+            <pre><code class="hljs actionscript">JavaScript output <span class="hljs-keyword">is</span> disabled <span class="hljs-keyword">in</span> JupyterLab</code></pre>
+
+            <p>I'm all for security, but breaking existing files this way is unacceptable.  The boilerplate from the Jupyter people is, </p>
+
+            <p>"The official, recommended way for people to provide their own custom outputs, widgets, etc is to write a JupyterLab extension."</p>
+
+            <p>So what this means is that everyone who already had working implementations of plotting features in Jupyter Notebooks has to go write another extension for them to work in Lab.  It also requires the user to install additional stuff as well for it all to work.  While this isn't too difficult, it's a pain in the ass AND not all packages have extensions written already.</p>
+
+            <p>The new Lab interface is very clever, possibly too clever for me.  They've tried to incorporate all sorts of useful features to make it more like an IDE, but this comes at the price of having to learn a more complex UI than the old Notebooks had.  It's all well done, but I find the explicit functionality less enjoyable to use than the beautiful, stripped down elegance of the old Notebooks, which surprised and delighted you as you used them.  Personally, I prefer using a real IDE, if I'm going to code something, but if you're looking for a browser-based IDE, Jupyter Lab is probably something you should look at.</p>
+
+            <div class="pure-u-1 pure-u-md-1-2" align="center">
+              <a href="./jupyter_lab.png" target="_blank">
+                <img alt="Jupyter Lab Interface"
+                    class="pure-img-responsive"
+                    src="./jupyter_lab.png">
+              </a>
+                <div class="post-image-meta">
+                    <h3>Jupyter Lab Interface</h3>
+                </div>
+            </div>
+
+            <p>I'm certain that at some point the old Notebooks will be deprecated entirely, so I'll keep poking at the new stuff, but until either the Jupyter people figure out an easy way to enable old functionality, or all the various packages I use have Lab extensions written, I'm not ready to use it full-time.  Hopefully support for the Notebooks will continue for some time to come.</p>
+            </div>
+          </section>
+        </div>
+
+            <div class="posts">
                       <h1 class="content-subhead">Mar 17, 2018</h1>
                       <section class="post">
                       <header class="post-header">
@@ -45,7 +81,7 @@
                       </div>
                     </section>
                   </div>
-              
+
                           <h1 class="content-subhead">Mar 3, 2018</h1>
                           <section class="post">
                               <header class="post-header">
