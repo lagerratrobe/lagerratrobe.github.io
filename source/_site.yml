@@ -6,4 +6,5 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-      
+    - text: "Pietta 1858"
+      href: Pietta_1858.html      
