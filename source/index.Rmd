@@ -1,5 +1,14 @@
 ---
   title: "My Website"
 ---
-  
-  Hello, Website!
+Foo Bar and Krak!
+
+
+# [header 1](http://www.google.com)
+blah blah blah
+
+# header 2
+blah blah blah
+
+# header 3
+blah blah blah

@@ -7,4 +7,8 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Pietta 1858"
-      href: Pietta_1858.html      
+      href: Pietta_1858.html
+output:
+  html_document:
+    toc: true
+    toc_float: true
