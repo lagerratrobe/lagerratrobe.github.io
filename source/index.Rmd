@@ -1,14 +1,11 @@
 ---
-  title: "My Website"
+title: "Roger's Rants"
 ---
-Foo Bar and Krak!
 
+Welcome to my Web site.  This is Version 3 or 4 of a place where I hope to capture some of my interests and opinions for posterity.  Given our current (Nov 2020) climate of intolerance, and keeping in mind that I'm not interested in comitting career suicide, my goal here isn't to offend anyone or be inflammatory.  Contact me privately, if that's what you'd like.
 
-# [header 1](http://www.google.com)
-blah blah blah
+Best wishes for the rest of 2020.
 
-# header 2
-blah blah blah
-
-# header 3
-blah blah blah
+Roger
+<br>
+`--`

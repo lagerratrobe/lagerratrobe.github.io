@@ -1,16 +1,16 @@
 name: "my-website"
 navbar:
-  title: "My Website"
+  title: "Home"
   left:
-    - text: "Home"
-      href: index.html
-    - text: "About"
-      href: about.html
-    - text: "Pietta 1858"
-      href: Pietta_1858.html
+#    - text: "Home"
+#      href: index.html
+    - text: "Guitars"
+      href: guitars.html
+#    - text: "Pietta 1858"
+#      href: Pietta_1858.html
 output:
   html_document:
-    toc: true
-    toc_float:
-      collapsed: false
+    #toc: true
+    #toc_float:
+      #collapsed: false
     css: styles.css
