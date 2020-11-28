@@ -10,7 +10,9 @@ navbar:
 #      href: Pietta_1858.html
 output:
   html_document:
+    theme: sandstone
     #toc: true
     #toc_float:
       #collapsed: false
     css: styles.css
+  
