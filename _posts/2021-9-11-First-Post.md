@@ -3,7 +3,7 @@ layout: post
 title: New Jekyll-Based Blog Underway
 ---
 
-I figure that it's always good to be technically current within the last 20 years, sort of like being fashionably late to a party.  Hence my late exploration of Jekyll, which was initially conceived by one of Github's founders back in [2008](https://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html).  I'm only 13 years behind, but hey, better late than never.
+I figure that it's always good to be a little behind the technical bleeding edge. It makes you seem like some sort of hipster luddite, or at least makes you feel like you're being fashionably late to the party.  Hence my late exploration of Jekyll, which was initially conceived by one of Github's founders back in [2008](https://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html).  I'm only 13 years behind, but hey, better late than never.
 
 Actually, I've had some sort of lame attempt at a Blog up in the past, but I always found the overhead of maintaining it to be more of a pain in the butt than it was worth.  Below was the latest attempt, using R-Studio to build and manage a website.  It worked, but I hated having to build the site every time I made a change.
 
