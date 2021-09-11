@@ -7,7 +7,7 @@ I figure that it's always good to be technically current within the last 20 year
 
 Actually, I've had some sort of lame attempt at a Blog up in the past, but I always found the overhead of maintaining it to be more of a pain in the butt than it was worth.  I tried out [Google's Blogspot](https://lagerratrobe.blogspot.com/) and got a few posts going in it, but it took more work than I wanted to commit to and it lacked the conceptual simplicity I was looking for.  We'll see how Jekyll does, but already I like what I'm seeing.
 
-![R-Based Website]({{ site.baseurl }}/images/R-Based_blog.png)
+![_config.yml]({{ site.baseurl }}/images/R-based_blog.png)
 
 A few of my requirements for a Blog:
 
