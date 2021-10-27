@@ -23,7 +23,9 @@ A few of my requirements for a Blog:
 
 So far, it looks like Jekyll meets all of these requirements, but we'll see how it goes.  Thanks to [Barry Clark's](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/) post from 2014 for getting this going.
 
-NOTE: Adding posts can be accomplished by simply adding markdown docs into the site.  GitHub will automatically take care of building the Jekyll site and posting it in your github.io page.
+### Adding posts:
+
+Simply add markdown docs into the site.  GitHub will automatically take care of building the Jekyll site and posting it in your github.io page.
 
 ```
 .
@@ -46,4 +48,13 @@ NOTE: Adding posts can be accomplished by simply adding markdown docs into the s
 
 *IF* you want to preview the site locally, you'll have to install Jekyll locally as well and use it to serve the site.
 
-
+```
+$ sudo apt install ruby
+$ sudo apt install ruby-dev
+$ sudo gem install github-pages
+$ cd $HOME/<git_acct>.github.io.git
+$ jekyll serve --watch
+...
+  Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+```
