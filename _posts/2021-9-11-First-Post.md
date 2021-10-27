@@ -22,3 +22,28 @@ A few of my requirements for a Blog:
 * Ability to post updates from any machine that has Github access and a text editor
 
 So far, it looks like Jekyll meets all of these requirements, but we'll see how it goes.  Thanks to [Barry Clark's](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/) post from 2014 for getting this going.
+
+NOTE: Adding posts can be accomplished by simply adding markdown docs into the site.  GitHub will automatically take care of building the Jekyll site and posting it in your github.io page.
+
+```
+.
+├── 404.md
+├── about.md
+├── CNAME
+├── _config.yml
+├── images
+├── _includes
+├── index.html
+├── _layouts
+├── LICENSE
+├── _posts
+│   ├── 2021-9-11-Ebike-Conversion.md <-- Here
+│   └── 2021-9-11-First-Post.md
+├── README.md
+├── _sass
+└── style.scss
+```
+
+*IF* you want to preview the site locally, you'll have to install Jekyll locally as well and use it to serve the site.
+
+
