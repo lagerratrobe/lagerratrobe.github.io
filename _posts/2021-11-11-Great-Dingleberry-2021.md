@@ -2,6 +2,8 @@
 layout: post
 title: The Great Dingleberry 2021
 date: 2021-11-11 11:00
+tags:
+  - Outdoors
 ---
 
 Last week, my friend Mark and I completed what I'm calling "The Great Dingleberry 2021".  This was a 4-day road trip where we travelled close to 800 miles across dirt, gravel and paved roads in Southern Washington and Eastern Oregon.  Our intent initially was to travel as far along the Washington Backcountry Discovery Route (WABDR) as we could, but the late season weather forced us to abandon that route and travel part of the Oregon Outback instead.  We were not disappointed and enjoyed our time seeing some lesser known (and travelled) areas of the states we live in.  We also achieved our goals of reconnecting post-COVID and getting some miles on our trucks, which had both been worked on extensively earlier this year.
