@@ -8,7 +8,56 @@ One of the most useful things I've found to do with R is to make periodic checks
 
 ## Simple Email Example
 
+```
+1 # messgae
+2 token_status_msg <- sprintf("WARNING! - API token expires in %s days",
+3                            days_to_expire)
+4
+5 # mail info
+6    from <- "<REPORT_TOOL@fubar.com>" # optional value
+7      to <- "<Royer@domain.com>"
+8 subject <- "API token about to expire!"
+9    body <- token_status_msg
+10     cc <- "<SpecialCC@domain.com>"
+11
+12 # mail command
+13 sendmail(from,
+14         to,
+15         subject,
+16         body,
+17         cc,
+18         control=list(smtpServer= "mail.domain.com")
+19 )
+```
+
 ## Email with Attachment
+
+```
+1 # attachment
+2 write.xlsx(bad_data, "bad_data.xlsx", overwrite = TRUE)
+3
+4 # message
+5 mail_message <- paste("The attached records are bad.",
+6                      "This is an automated check, do not reply.",
+7                      sep="\n\n")
+8
+9 # mail info
+10       from <- sprintf("<REPORT_TOOL@fubar.com>")
+11         to <- sprintf("<Royer@domain.com>")
+12         cc <- sprintf("<SpecialCC@domain.com>")
+13    subject <- "Bad Data Found"
+14 attachment <- sendmailR::mime_part(x = "bad_data.xlsx")
+16       body <- list(mail_message, attachment)
+17
+18 # mail command
+19 sendmail(from,
+20            to,
+21            subject,
+22            body,
+23            cc,
+24            control=list(smtpServer="mail.domain.com")
+25 )
+```
 
 ## Final Thoughts
 
