@@ -4,7 +4,7 @@
 update_tags.py
 Script to automatically create tags posts for a Jekyll blog hosted
 in Github pages. First, it fishes all tags. Then, it creates the
-tags posts. Lastly, it adds the generated files, commits them, and pushes 
+tags posts. Lastly, it adds the generated files, commits them, and pushes
 them to the corresponding repository. Preferably run this script
 when having a clean working space (nothing to commit/push).
 Based on Long Qian's post
@@ -29,39 +29,6 @@ tag_dir = './tag/'
 
 #%%
 def get_tags(post_dir=post_dir, verbose=True):
-    '''
-    Adapted from tag_generator.py
-    Copyright 2017 Long Qian
-    Contact: lqian8@jhu.edu
-    This script created tags for a Jekyll blog hosted by Github page.
-    No plugins required.
-    See https://longqian.me/2017/02/09/github-jekyll-tag/
-    
-    Updated 2019-12-05
-    Arturo Moncada-Torres
-    arturomoncadatorres@gmail.com
-    Adapted script to process .md files with tags in format
-    tags:
-        - tag1
-        - tag2
-        ...
-    Notice that for this to work properly, tags must be the last element of the
-    Markdown header.
-    
-    Parameters
-    ----------
-    post_dir: string
-        Path to directory _posts/
-        
-    verbose: boolean
-        Indicate if status messages are printed (True) or not (False)
-
-
-    Returns
-    -------
-    total_tags: set
-        Set with all the tags used in the different posts.
-    '''    
     
     # Get Markdown posts files.
     filenames = glob.glob(post_dir + '*md')
@@ -174,9 +141,9 @@ if __name__ == '__main__':
     except:
         print("Error ocurred while adding files to Git.")
 
-    # Commit changes.    
+    # Commit changes.
     try:
-        repo.git.commit('-m', 'Updated tags and created corresponding posts')    
+        repo.git.commit('-m', 'Updated tags and created corresponding posts')
     except:
         print("Error occurred while commiting.")
     
