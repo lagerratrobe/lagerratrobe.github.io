@@ -176,7 +176,7 @@ if __name__ == '__main__':
 
     # Commit changes.    
     try:
-        repo.git.commit('-m', 'Updated tags and created corresponding posts', author='`randre@gmail.com')    
+        repo.git.commit('-m', 'Updated tags and created corresponding posts')    
     except:
         print("Error occurred while commiting.")
     
