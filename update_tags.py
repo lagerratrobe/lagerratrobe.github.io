@@ -24,7 +24,7 @@ import git
 
 #%% Define paths.
 post_dir = '_posts/'
-tag_dir = 'tag/'
+tag_dir = './tag/'
 
 
 #%%
