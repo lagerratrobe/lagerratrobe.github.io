@@ -138,6 +138,7 @@ if __name__ == '__main__':
     # Add files for commit.
     try:
         repo.git.add(tag_dir)
+        repo.git.add(post_dir)
     except:
         print("Error ocurred while adding files to Git.")
 
