@@ -6,11 +6,27 @@ tags:
   - R_Hacks
 ---
 
-Sometime ago, a former coworker told me that they thought using R for GIS was one of the dumbest things they had ever heard of.  I have to imagine they didn't really have any firsthand knowledge of the topic, as my experience tells me R is VERY capable of being used to do GIS tasks.  Plenty of quality GIS work has been done in R with long-standing libraries like [raster](https://cran.r-project.org/web/packages/raster/index.html) and [sp](https://cran.r-project.org/web/packages/sp/index.html).  However, the release of the [sf package](https://cran.r-project.org/web/packages/sf/index.html) a few years ago made R even more powerful and easier to use for GIS.  Using the same underlying libraries as PostGIS; GDAL, GEOS and PROJ - sf now shares a very similar command syntax and data model with a tool that is known as one of the finest GIS applications ever built.  One thing R does better though is to actually provide a visualization interface for simple maps using the base _plot_ command.
-
-Most articles on using R for map visualization focus on using additinal libraries such as [ggplot2](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html) and others to enable sophisticated plotting options.  However, many times this isn't needed.  This post captures a few simple plotting techniques that can be used for rapid visualizations to validate assumptions, or find problems.
+Most articles written about using R for map visualization focus on using libraries such as [ggplot2](https://r-spatial.org/r/2018/10/25/ggplot2-sf.html) and others to enable sophisticated plotting options.  However, many times this isn't needed as _sf_ (and most other spatial packages) supports basic plotting operations natively.  This post captures a some simple techniques that can be used for rapid visualizations to validate assumptions and find problems.
 
 ## Plot 1:
 
 ![simple_poly]({{ site.baseurl }}/images/wa_state.PNG)
+
+### Code
+
+```
+library(sf)
+library(dplyr)
+
+wa_state <- st_read("C:/Users/RAndre1/Documents/Work_Docs/GIS_DATA/wa_state.shp")
+wa_cities <- st_read("C:/Users/RAndre1/Documents/Work_Docs/GIS_DATA/sample_wa_cities.shp")
+
+plot(wa_state$geometry)
+plot(wa_cities$geometry, add = TRUE, pch=20, col='red')
+text(st_coordinates(wa_cities), pos=1, wa_cities$Name, cex=0.75, col = 'red')
+
+st_centroid(wa_state) %>% 
+  st_coordinates() %>% 
+  text(pos=3, wa_state$Name, cex=1.25)
+```
 
