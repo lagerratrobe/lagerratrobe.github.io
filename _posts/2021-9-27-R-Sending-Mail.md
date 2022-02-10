@@ -65,5 +65,10 @@ One of the most useful things I've found to do with R is to make periodic checks
 
 While extremely useful, there are some limitations to this approach.  The main one being that you need a sendmail server available that can actually send the message.  An additional one is that you can only specify one recipient for each of the _to:_ or _cc:_ types.
 
+UPDATE: The preceeding comment regarding the limit of a sigle email recipient per _to:_ and _cc:_ is incorrect.  To specify more than one user, simply place their email addresses in a list.
 
+```
+to <- list("<email1@domain.com>", "<email2@domain.com>")
+```
+```
 
