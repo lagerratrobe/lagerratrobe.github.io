@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/python3
 
 """
 update_tags.py
@@ -18,7 +18,6 @@ arturomoncadatorres@gmail.com
 #%% Preliminaries.
 import glob
 import os
-
 import git
 
 
