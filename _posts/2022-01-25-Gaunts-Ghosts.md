@@ -10,7 +10,7 @@ I have a guilty secret to confess - I enjoy reading Warhammer 40K novels!  I've 
 
 Spanning 16 books, the series chronicles Gaunt and the Tanith's path along the Sabbat Worlds Crusade.  Commissar Ibram Gaunt, commander of the Tanith 1st and Only and loyal servant of the Emperor of Mankind.  Moody, driven and utterly devoted to rooting out Chaos and taking care of his men.  The Tanith, a few thousand survivors of a world utterly obliterated and forced to wander with Gaunt until they can win back a world for themselves.  Masters of stealth and covert operations, they are a cross between Army Rangers, the elves in Lord of the Rings and Scottish highlanders.
 
-Here are their stories!
+## Books in the Series
 
 <center>
 <h2>First and Only</h2>
@@ -18,7 +18,7 @@ Here are their stories!
 
 ![First and Only]({{ site.baseurl }}/images/gaunt_first_and_only.png){: width="250"}{:style="display:block; margin-left:auto; margin-right:auto"}
 
-Told after the Tanith regiment has already been founded for a few years, we find them deployed to the Forge-world of Fortis Binary and later to the relic-laden planet of Menazoid Epsilon. The Ghosts are unwitting pawns in a personal vendetta against Gaunt by a sister unit of the Imperial Guard, The Jantine Patricians.  Led by a man whose father Gaunt killed for dishonor, the Patricians are themselves pawns in the larger scheme of General Hechtor Dravere and Inquisitor Heldane to recover a Standard Template Construct (STC) and use it to overthrow Warmaster Macaroth.
+Told after the Tanith regiment has already been founded for sometime, we find them deployed to the Forge-world of Fortis Binary and later to the relic-laden planet of Menazoid Epsilon. The Ghosts are unwitting pawns in a personal vendetta against Gaunt by a sister unit of the Imperial Guard, The Jantine Patricians.  Led by a man whose father Gaunt killed for dishonor, the Patricians are themselves pawns in the larger scheme of General Hechtor Dravere and Inquisitor Heldane to recover a Standard Template Construct (STC) and use it to overthrow Warmaster Macaroth.
 
 Hellish trench warfare, friendly fire accidents, assasins controlled by Psykers and creepy undergound installations with secret weapons - the Ghosts meet and overcome all of these and more. Along the way, we experience a series of flashbacks where we go into Gaunt's past and discover the reasons for his bad blood with the Patricians and gain insights into how he became the man and Colonel-Commissar we see now.
 
