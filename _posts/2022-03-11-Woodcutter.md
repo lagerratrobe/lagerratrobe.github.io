@@ -6,8 +6,6 @@ tags:
   - personal
 ---
 
-### Part 1, The Tower
-
 There once was a woodcutter who lived in a meadow by a large forest.  A beautiful stream ran through the meadow and the water from it powered a small sawmill.  The woodcutter used the sawmill to cut logs from the nearby forest into beams.  The work kept him busy and he was happy to create something of utility and value.
 
 Nearby, on a mountain whose slopes rose from the woodcutter's meadow, there was a tower.  Located at the very peak of the mountain, the tower was made of brick and very tall.  From the top, one could see all around it and far into the distance.  A crew of bricklayers worked tirelessly there to raise the tower ever higher. One-by-one, they added bricks to the top, while also knocking out flawed bricks from sections they had built before.  From the top, one could see other towers being built on nearby mountains and it was important that this tower always be taller than the other towers.  This tower needed to be the tallest.
