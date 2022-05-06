@@ -1,0 +1,50 @@
+# Creating Rasters in R and Python
+
+Having the ability to create rasters yourself is useful, especially when working with raw sensor data that hasn't been conveniently pre-packaged.
+
+### Basic Raster Concepts
+
+Rasters are 2 dimensional data structures in which data is contained in a regularly spaced grid.  Each cell in the grid contains a single data value which can be retrieved by specifying either the exact grid address (row and column), or the region (group of grid cells) in which the value is stored. Usually the spacing of the grid cells is uniform in both the _X_ and _Y_ directions, but this is not always the case.  The formal definition for this type of data structure is a 2-dimensional _array_, or _matrix_.
+
+Rasters are referenced from an origin that is either at the top or bottom left corner of the grid.  The row and column numbers of each grid cell (or pixel) increase in count from the origin, but the Y position of the data may either go up or down as the count increases.  When a raster is georeferenced, the origin corresponds to a geographic location expressed as a point in whatever coordinate system the raster has been defined in.
+
+__Fig 1. Raster grid with origin at top-left__<br>
+![Raster grid with top-left origin](https://user-images.githubusercontent.com/686797/72739675-f910a580-3b58-11ea-8140-1a30fc19cb3e.gif)
+
+Various types of data can be stored in rasters but commonly they are used to store images, in which the cell values are representations of RGD color values (in the case of color images), or light reflectance or brightness (in the case of B&W images).  Another common use for rasters is to store scientific data such as land elevation, air temperature, smoke density or water depth.  These are examples of continuous data, where each pixel can represent a different and continuously variable value.  Rasters can also be used to store discrete values, where a group of pixels represent a discrete class of data, such as a land-use category, where each pixel in a specific class will have the same value.  Finally, rasters can also be used to aggregate data from various point locations, like from a sensor network, where each sensor location is represented by a pixel in the raster.  This type of point location data is often converted into a continuous data set later by extrapolating pixel values between the point locations.
+
+__Fig. 2 Continuous data in raster as a hillshade__<br>
+![cont_color_hillshade](https://user-images.githubusercontent.com/686797/72740139-efd40880-3b59-11ea-8814-4e8f6c164772.png)
+
+
+### Elements Required to Create a Raster
+
+Very little information is needed to create a basic raster.  All that is really needed is some data arranged in a matrix. (Note that in Python the term "array" is used instead of "matrix".)
+
+__R__
+```
+library(raster)
+
+simple_matrix <- matrix(seq(1,9),
+                        nrow = 3,
+                        ncol = 3,
+                        byrow = TRUE)
+
+simple_raster <- raster(simple_matrix)
+```
+__Fig 3. Simple 3x3 raster in R__<br>
+![R_simple_3x3](https://user-images.githubusercontent.com/686797/73093927-6e9baf00-3e94-11ea-8b3c-4a96acb401ff.png)
+
+__Python__
+```
+from PIL import Image
+
+simple_array = np.asarray(range(1,10)).reshape(3,3)
+
+im = Image.fromarray(np.uint8(simple_array))
+pyplot.imshow(im)
+```
+__Fig. 4 Simple 3x3 raster in Python__<br>
+![python_simple_3x3](https://user-images.githubusercontent.com/686797/73093935-72c7cc80-3e94-11ea-9d9b-33d691178191.png)
+
+In both examples above, a simple 3x3 matrix was created from a sequence of numbers that range from [1, 9].  That matrix was then passed into an image creation library and the resulting image was then rendered.  Because the values in each pixel are different, and because a color palette wasn't specified, each renderer chose a basic pallete.  While simple, knowing this concept is very powerful.
