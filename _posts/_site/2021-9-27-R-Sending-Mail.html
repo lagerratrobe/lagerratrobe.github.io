@@ -1,0 +1,63 @@
+<p>One of the most useful things I’ve found to do with R is to make periodic checks of various things in my data environment.  This is particularly useful in places where 2 systems store the same data that <em>in theory</em> should be kept in sync, but in practice exhibit drift for whatever reason.  It’s easy to create a script that compares both systems and flags any discrepancies that are found. The trick then is what to do with those results?  What I show here is a way to email the results, either as a simple message, or as a message with an attachment, to several users.</p>
+
+<h2 id="simple-email-example">Simple Email Example</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 # message text
+2 token_status_msg &lt;- sprintf("WARNING! - API token expires in %s days",
+3                            days_to_expire)
+4
+5 # mail info
+6    from &lt;- "&lt;REPORT_TOOL@fubar.com&gt;" # optional value
+7      to &lt;- "&lt;Royer@domain.com&gt;"
+8 subject &lt;- "API token about to expire!"
+9    body &lt;- token_status_msg
+10     cc &lt;- "&lt;SpecialCC@domain.com&gt;"
+11
+12 # mail command
+13 sendmail(from,
+14         to,
+15         subject,
+16         body,
+17         cc,
+18         control=list(smtpServer= "mail.domain.com")
+19 )
+</code></pre></div></div>
+
+<h2 id="email-with-attachment">Email with Attachment</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 # attachment
+2 write.xlsx(bad_data, "bad_data.xlsx", overwrite = TRUE)
+3
+4 # message text
+5 mail_message &lt;- paste("The attached records are bad.",
+6                      "This is an automated check, do not reply.",
+7                      sep="\n\n")
+8
+9 # mail info
+10       from &lt;- sprintf("&lt;REPORT_TOOL@fubar.com&gt;")
+11         to &lt;- sprintf("&lt;Royer@domain.com&gt;")
+12         cc &lt;- sprintf("&lt;SpecialCC@domain.com&gt;")
+13    subject &lt;- "Bad Data Found"
+14 attachment &lt;- sendmailR::mime_part(x = "bad_data.xlsx")
+16       body &lt;- list(mail_message, attachment)
+17
+18 # mail command
+19 sendmail(from,
+20            to,
+21            subject,
+22            body,
+23            cc,
+24            control=list(smtpServer="mail.domain.com")
+25 )
+</code></pre></div></div>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>While extremely useful, there are some limitations to this approach.  The main one being that you need a sendmail server available that can actually send the message.  An additional one is that you can only specify one recipient for each of the <em>to:</em> or <em>cc:</em> types.</p>
+
+<p>UPDATE: The preceeding comment regarding the limit of a sigle email recipient per <em>to:</em> and <em>cc:</em> is incorrect.  To specify more than one user, simply place their email addresses in a list.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to &lt;- list("&lt;email1@domain.com&gt;", "&lt;email2@domain.com&gt;")
+</code></pre></div></div>
+<p>```</p>
+

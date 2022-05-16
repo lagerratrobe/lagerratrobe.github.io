@@ -1,0 +1,23 @@
+<p>Most articles written about using R for map visualization focus on using libraries such as <a href="https://r-spatial.org/r/2018/10/25/ggplot2-sf.html">ggplot2</a> and others to enable sophisticated plotting options.  However, many times this isn’t needed as <em>sf</em> (and most other spatial packages) supports basic plotting operations natively.  This post captures a some simple techniques that can be used for rapid visualizations to validate assumptions and find problems.</p>
+
+<h2 id="plot-1">Plot 1:</h2>
+
+<p><img src="/images/wa_state.PNG" alt="simple_poly" /></p>
+
+<h3 id="code">Code</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>library(sf)
+library(dplyr)
+
+wa_state &lt;- st_read("C:/Users/RAndre1/Documents/Work_Docs/GIS_DATA/wa_state.shp")
+wa_cities &lt;- st_read("C:/Users/RAndre1/Documents/Work_Docs/GIS_DATA/sample_wa_cities.shp")
+
+plot(wa_state$geometry)
+plot(wa_cities$geometry, add = TRUE, pch=20, col='red')
+text(st_coordinates(wa_cities), pos=1, wa_cities$Name, cex=0.75, col = 'red')
+
+st_centroid(wa_state) %&gt;% 
+  st_coordinates() %&gt;% 
+  text(pos=3, wa_state$Name, cex=1.25)
+</code></pre></div></div>
+
