@@ -8,7 +8,7 @@ tags:
 
 The [Libre Tritium H5](https://libre.computer/products/h3/) is a small computer similar to a Raspberry Pi 3 built around an Allwinner SOC (System on Chip).  The H5 has 4 ARMv7 Cortex-A cores, 2 Gb of RAM and a bunch of other features.  The one that matters though is that the board is actually available.  Search for official Raspberry Pi boards at the moment and you will see that they are made of Un-Obtanium.  The great COVID-Supply-Chain-Shortage has caused official R-Pi prices to go through the roof and most reputable vendors like Adafruit and Sparkfun are out of stock with no firm idea of when they will return.  The H5, while imperfect, fills the void in my prototyping environment.
 
-![hub-motor]({{ site.baseurl }}/images/Tritium_H5.jpg)
+![Libre Computer Tritium H5]({{ site.baseurl }}/images/Tritium_H5.jpg)
 
 ### Materials Needed
 
@@ -31,13 +31,7 @@ I did this with [Balena Etcher](https://www.balena.io/etcher/) which I find work
 
 The USB cable has 4 wires, 3 of which will be used to connect to the H5 board in the following manner.  (If you think about this for 1/10 of a sec, you'll see that if you "Send" (TX) from one side, you have to "Receive" (RX) on the other.  Anywho...)
 
-|Cable|Board|
---------|--------|
-white(RX) | TX |
-green(TX)| RX |
-black(GND)| GND|
-
-
+![TTL-to-board cabling]({{ site.baseurl }}/images/cable_table.png)
 
 ### Step 4 - Open a Connection to the Board
 
