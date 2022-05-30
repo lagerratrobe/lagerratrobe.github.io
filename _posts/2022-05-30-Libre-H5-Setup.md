@@ -27,6 +27,8 @@ You can choose whatever OS image you want, but the one that I used, and which I 
 
 I did this with [Balena Etcher](https://www.balena.io/etcher/) which I find works well.  There's plently of documentation on how to make this difficult - just use Balena, point at the compressed image, then at your SD card and let it rip!
 
+Note: To clean and reset SD Card see [here](https://www.balena.io/blog/did-etcher-break-my-usb-sd-card/)
+
 ### Step 3 - Connect USB-to-TTL cable
 
 The USB cable has 4 wires, 3 of which will be used to connect to the H5 board in the following manner.  (If you think about this for 1/10 of a sec, you'll see that if you "Send" (TX) from one side, you have to "Receive" (RX) on the other.  Anywho...)
@@ -40,6 +42,8 @@ Connect the USB side of the TTL cable to a free USB port on your laptop/desktop.
 Minicom is available for all OS and there is plenty of documentation for it.  If you're on a Windows machine and the H5 board is connected to COM 4, then in WSL (Linux Subsystem) the Minicom settings should look like this:
 
 ```
+$ sudo minicom -s
+
     +-----------------------------------------------------------------------+
     | A -    Serial Device      : /dev/ttyS4                                |
     | B - Lockfile Location     : /var/lock                                 |
@@ -141,6 +145,8 @@ At this point it is a good time to do whatever you need in order to streamline a
 ```
 $ sudo rm /etc/ssh/ssh_host_*
 $ sudo dpkg-reconfigure openssh-server
+$ sudo apt install gstreamer1.0-tools
+$ sudo apt install gstreamer1.0-alsa
 ```
 Once you see that the new keys have been generated, you can test that SSH works by making a connection to localhost and logging in as yourself.
 
