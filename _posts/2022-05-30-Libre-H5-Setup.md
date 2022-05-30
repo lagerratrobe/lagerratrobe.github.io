@@ -136,8 +136,7 @@ Please provide a username (eg. your forename):
 
 At this point it is a good time to do whatever you need in order to streamline access to the board in the future, like...
 
-- Reconfigure SSH
-for some reason, even though sshd is running, you won't be able to connect to it unles you do the following.
+- Reconfigure SSH: For some reason, even though sshd is running and installed, you won't be able to connect to it unles you do the following.
 
 ```
 $ sudo rm /etc/ssh/ssh_host_*
