@@ -44,12 +44,26 @@ iface eth0 inet static
 I mean, does anyone get crontabs right the 1st time?  In my case, the learning was that this sort of command syntax isn't liked.
 
 ```
-Rscript /home/foo/UpdateWeather.R
+0 * * * * Rscript /home/foo/UpdateWeather.R
 ```
-Even though that works from the commandline, CRON wouldn't execute it.  What worked better was to add a shebang line in the script, `#! /usr/local/bin/Rscript`, and then call on the just the script itself in the crontab.
+Even though that works from the commandline, CRON wouldn't execute it.  What worked better was to add a shebang line in the script, `#! /usr/local/bin/Rscript`, and then call on the just the script itself in the crontab. Probably this could have been fixed by just putting the entire command in quotes, Rscript /home/foo/UpdateWeather.R", but I prefer this syntax anyhow.
 ```
 0 * * * * /home/randre/Code/UpdateWeatherS3.R
 ```
 This seems to be working fine now.
 
+### Logging is Good
+
+So it turns out that cron's logging in /var/log/syslog is kinda crappy.  It records when a user makes edits to their crontab, but not when the jobs actually executes.  You can change this behavior, but I found it expedient to just tack this on the very bottom of my script.  It's not good coding, by any means, but I can quickly verify that the job ran at least.
+
+```
+system("echo `date` >> /home/randre/Code/weather_update.log")
+```
+This logs the date and time the script ran and looks like this.
+
+```
+$ cat weather_update.log 
+Thu 21 Jul 2022 10:00:11 AM PDT
+Thu 21 Jul 2022 11:00:09 AM PDT
+```
 
