@@ -110,6 +110,12 @@ img {
   max-width: 100%;
 }
 
+pre {
+    font-family: $code-font-family;
+    white-space: pre-wrap;
+    font-size: $code-font-size;
+}
+
 // Fixes images in popup boxes from Google Translate
 .gmnoprint img {
   max-width: none;
@@ -285,5 +291,6 @@ footer {
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@import "highlights";
+//@import "highlights";
+@import "sass-code-highlight/github";
 @import "svg-icons";

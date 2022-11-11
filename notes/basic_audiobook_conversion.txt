@@ -1,0 +1,34 @@
+1. Downlod the file.odm from library
+2. Convert/download the actual MP3 file with `overdrive`
+
+```
+$ overdrive download <file>.odm
+
+Generating random ClientID=122ECF8F-3962-4061-8916-FE3181AAA40B
+Using AcquisitionUrl=https://ofs.contentreserve.com/MP3LicenseAcquisitionService.svc/f0fd7882-8d55-40e6-88e1-af3c00f9926f
+Using MediaID=73b8ca42-74d0-4dff-87c6-bdec01691948-425
+Using RawHash=122ECF8F-3962-4061-8916-FE3181AAA40B|1.2.0|10.11.6|ELOSNOC*AIDEM*EVIRDREVO
+Using Hash=XrWs87cSRj08uecFTeQYG7vE+CA=
+Using License=<License xmlns="http://license.overdrive.com/2008/03/License.xsd" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><SignedInfo><Version>1.0</Version><ContentID>73b8ca42-74d0-4dff-87c6-bdec01691948-425</ContentID><ClientID>122ECF8F-3962-4061-8916-FE3181AAA40B</ClientID></SignedInfo><Signature>dvreVDJ7u/HXFlmFXYpdx9hD2FZt5lko2eCC3hcld1ZKnluC2xs5f3R4vpLJ9oLjo1K0ux3HQzEFSsp4p2BrVb0H7oAUsMxBErXGiY7ioxNfJSgECYKXYwMlsbBjfMmW6z7qb+gnqn9TDGXYhN5VeYqTsWnuBmZbTHgaDX1AwZs=</Signature></License>
+Using ClientID=122ECF8F-3962-4061-8916-FE3181AAA40B from License
+Using Author=John Gierach
+Using Title=Dumb Luck and the Kindness of Strangers
+Creating directory John Gierach - Dumb Luck and the Kindness of Strangers
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part01.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part01.mp3 successfully
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part02.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part02.mp3 successfully
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part03.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part03.mp3 successfully
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part04.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part04.mp3 successfully
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part05.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part05.mp3 successfully
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part06.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part06.mp3 successfully
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/Part07.mp3
+Downloaded John Gierach - Dumb Luck and the Kindness of Strangers/Part07.mp3 successfully
+Using CoverUrl=https://images.contentreserve.com/ImageType-100/1219-1/%7B73B8CA42-74D0-4DFF-87C6-BDEC01691948%7DImg100.jpg
+Downloading John Gierach - Dumb Luck and the Kindness of Strangers/folder.jpg
+Downloaded cover image successfully
+```
