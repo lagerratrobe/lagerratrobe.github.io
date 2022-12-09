@@ -4,6 +4,7 @@ title: Basic API Parsing in R
 date: 2022-05-16 11:00
 tags:
   - R_Hacks
+  - tech
 ---
 
 A really great way to retrieve certain types of data is to request it from an online API.  This is especially true in situations where the source data is refreshed frequently, or when only small numbers of records are needed at any given time.  A good example of this would be address level geocoding, where a single address is submitted to the API and a single pair of coordinates is reurned.  As we'll see, R is eminently suited for this sort of data lookup.
