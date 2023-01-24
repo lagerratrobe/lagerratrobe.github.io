@@ -55,3 +55,23 @@ Switched to branch 'remotes/origin/national_run'
 User@Machine MINGW64 ~/<repo_name> (remotes/origin/national_run) 
 ```
 
+## Creating New Repo from Project Dir
+
+Often, I've been working for a little while in a directory that now has a project structure and I'd like to push the whole mess up to Github in a new repo.
+
+```
+1. Create the new Repo in the online Github interface.  Create it without README or anything else.
+
+2. On your local machine:
+
+$ cd <PROJECT_DIR> (AZML_Workbench_Demo in this case)
+$ git init
+
+# Create a README.md
+
+$ git add *
+$ git commit -m "first commit"
+$ git branch -M main
+$ git remote add origin git@github.com:lagerratrobe/AZML_Workbench_Demo.git
+$ git push -u origin main
+```
