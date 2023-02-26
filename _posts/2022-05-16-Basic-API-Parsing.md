@@ -7,23 +7,25 @@ tags:
   - tech
 ---
 
-A really great way to retrieve certain types of data is to request it from an online API.  This is especially true in situations where the source data is refreshed frequently, or when only small numbers of records are needed at any given time.  A good example of this would be address level geocoding, where a single address is submitted to the API and a single pair of coordinates is reurned.  As we'll see, R is eminently suited for this sort of data lookup.
+An extrememly common and efficient way to retrieve certain types of data is to request it from an online API.  This is especially true in situations where the source data is refreshed frequently, or when only small numbers of records are needed at any given time.  A good example of this would be address level geocoding, where a single address is submitted to the API and a single pair of coordinates is reurned.  As we'll see, R is eminently suited for this sort of operation.
 
 ## Where's the Data?
 
-Of course, in order for this to work, you need to have a data source.  Fortunatley for those of us living in the U.S., there are many outstanding data APIs available to us from the federal government.  A couple good examples are the 2 listed below:
+In the last 10 years, or so, the U.S. government has made great strides in making public data available through APIs.  Below are 2 good examples:
 
-* (US Census Geocoder)[https://geocoding.geo.census.gov/]
-* (FCC Census data API)[https://geo.fcc.gov/api/census/]
+* [US Census Geocoder](https://geocoding.geo.census.gov/)
+* [FCC Census data API](https://geo.fcc.gov/api/census/)
 
-The 1st API we'll look at is the US Census Geocoder. We give it an address and it returns to us geographic coordinates.  Here's an example for an addresslocated in Bellevue, WA - 3305 160th Ave SE, Bellevue, WA 98008.
+The 1st API is the US Census Geocoder. It takes an address as input and returns to us geographic coordinates.  Here's an example for an address located in Bellevue, WA.
 
-Request:
+> 3305 160th Ave SE, Bellevue, WA 98008.
+
+__Request:__
 ```
 https://geocoding.geo.census.gov/geocoder/locations/address?street=3305+160th+Ave+SE&city=Bellevue&state=WA&benchmark=2020&format=json
 ```
 
-Response:
+__Response:__
 ```
 {
     "result": {
@@ -71,12 +73,14 @@ Response:
 }
 ```
 
-Second API:
+The 2nd API takes in a geographic coordinate and returns US Census block level information such as population and the _block_fips_ identifier code.  The _block_fips_ can be used to access additional demographic information about the area using tools such as [TidyCensus](https://walker-data.com/tidycensus/)
+
+__Request:__
 ```
 https://geo.fcc.gov/api/census/area?lat=47.583504&lon=-122.127556
 ```
 
-Response:
+__Response:__
 ```
 {
     "input": {
@@ -116,6 +120,31 @@ Response:
 }
 
 ```
+
+## Get the Data!
+
+Now that we know where, and how, to get some data, it's time to build an R function that will allow us to quickly and easily use these APIs.  We want a function into which we can pass our input data into, which then queries the API, evaluates the results and returns to us the information that we're interested in.  
+
+If we look at the structure of a request to the census.gov geocoding API, we can see that it is structured in a very specific way.  We can break that request URL into 2 parts, the base URL and the request itself.
+
+__Base URL:__
+
+> `https://geocoding.geo.census.gov/geocoder/locations/address?`
+
+__Request Parameters:__
+
+> `street=3305+160th+Ave+SE&city=Bellevue&state=WA&benchmark=2020&format=json`
+
+The request parameters are further broken down into parts which are separated by an ampersand "&" symbol.  If we want to better understand how the API works, we can look at the [documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html/).  Doing that will inform us about what is expected in each parameter of the request.  It will also tell us that the API can work in a both a single record lookup, or in a batch mode.  Batch mode is outside the scope of this article, but might be fun to try, if you're interested.  Coming back to the parameters though, we can see the following:
+
+```
+street=3305+160th+Ave+SE&
+city=Bellevue&
+state=WA&
+benchmark=2020&
+format=json
+```
+
 
 
 
