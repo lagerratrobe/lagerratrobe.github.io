@@ -7,16 +7,16 @@ tags:
   - tech
 ---
 
-An extrememly common and efficient way to retrieve certain types of data is to request it from an online API.  This is especially true in situations where the source data is refreshed frequently, or when only small numbers of records are needed at any given time.  A good example of this would be address level geocoding, where a single address is submitted to the API and a single pair of coordinates is reurned.  As we'll see, R is eminently suited for this sort of operation.
+A common and efficient way to retrieve certain types of data is to request it from an online API.  This is especially true in situations when the source data is refreshed frequently, or where only small numbers of records are needed at any given time.  A good example of this would be address level geocoding, where a single address is submitted to an API and a single pair of coordinates is returned.  As we'll see, R is eminently suited for this sort of operation.
 
 ## Where's the Data?
 
-In the last 10 years, or so, the U.S. government has made great strides in making public data available through APIs.  Below are 2 good examples:
+A couple great examples of public data sets which are available through APIs are these.
 
 * [US Census Geocoder](https://geocoding.geo.census.gov/)
 * [FCC Census data API](https://geo.fcc.gov/api/census/)
 
-The 1st API is the US Census Geocoder. It takes an address as input and returns to us geographic coordinates.  Here's an example for an address located in Bellevue, WA.
+The 1st API is the US Census Geocoder. It takes an address as input and returns geographic coordinates (and some other data as well).  Here's an example for an address located in Bellevue, WA.
 
 > 3305 160th Ave SE, Bellevue, WA 98008.
 
@@ -135,7 +135,13 @@ __Request Parameters:__
 
 > `street=3305+160th+Ave+SE&city=Bellevue&state=WA&benchmark=2020&format=json`
 
-The request parameters are further broken down into parts which are separated by an ampersand, "&", symbol.  If we want to better understand how the API works, we can look at the [documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html/).  Doing so will tell what is expected in each parameter of the request.  It will also tell us that the API can work in a a single record mode, or in a batch mode.  Batch mode is outside the scope of this article, but might be fun to try, if you're interested.  Coming back to our parameters though, we can see the following:
+The Request Parameters are further broken down into parts which are separated by either "+" or "&" symbols.  The "+" symbols are used to replace spaces, the "&" is used to actually separate the parameter values from one another.  
+
+Looking at our original address and then comparing it to the Request Parameters - which we split at the "&" into a new line for each parameter" - we can see the following:
+
+> 3305 160th Ave SE, Bellevue, WA 98008
+
+__Vs.__
 
 ```
 street=3305+160th+Ave+SE&
@@ -145,12 +151,14 @@ benchmark=2020&
 format=json
 ```
 
-This is pretty self-explanatory, but it's probably worth the effort of reading the docs if you intend to use this api.  Briefly though, in the way we're using it, we have split the street address from the City and State, replaced spaces with "+" symbols and, the anal-retentive will have noticed, we omitted the zipcode from the request.  Omitting the zip is possible because the docs state, 
+This is pretty self-explanatory, but briefly, in the way we're using it (aka, "the structure of our request"), we have split our original full address into, Street address, City and State fields and replaced spaces with "+" symbols.  Also, as the anal-retentive will have noticed, we have omitted the ZipCode in the original Full Address from the request. Omitting the zip is possible because the docs state, 
 
 > "_Not all parts need to be specified_".  
 
-The "benchmark" parameter is specifying what version of data we want queried, in this case 2020 Census data and the "format" parameter is saying that we want the results returned to us in JSON.
+This is one main uses of a geocoding API, by the way, to flesh out the parts of an address that we don't know.  Although we didn't supply the ZipCode as part of our request, the API still returned one as part of its response.  
+
+The "benchmark" parameter is used to specify what version of underlying data we want the API to query.  In this case, it's 2020 Census data. And the "format" parameter is saying that we want the results returned to us in JSON.
+
+(If we want to better understand how the API works, we can look at the [documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html/).  Doing so will tell what is expected in each parameter of the request, as well as other functional options for the API)
 
 ### R Code
-
-
