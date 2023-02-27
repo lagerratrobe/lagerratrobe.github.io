@@ -1,27 +1,21 @@
-# getTbuildReport()
+# getGeocodeCoords()
 
-getTbuildReport <- function (
-    list_id = 12542 # Hardcodeed to get the demo-data report for all stores
+getGeocodeCoords <- function (
+    street = NULL,
+    city = NULL,
+    state = NULL
 ) {
   library(jsonlite)
   library(httr)
   
-  baseURL <- "https://builder.rreis.com/api/list/"
+  baseURL <- "https://geocoding.geo.census.gov/geocoder/locations/address?"
   
   requestURL <- paste0(baseURL, list_id, "?")
-  # Curl request looks like this:
-  # curl -X GET \
-  #   --header "X-TBApiToken: wMheRsWvrvY3DEMv4NuUWb9KFsqFcebW" \
-  #   --header "Accept: application/vnd.tbuilder.v1+json" \
-  #   "https://builder.rreis.com/api/list/12542?pageNumber=2"
   
   # Base function that makes request. Use this function later with paged URLs
   getURL <- function(URL) {
     
-    GET(url = URL,
-        add_headers(`X-TBApiToken` = 'u4FBuCbwCUhdAuzeyaF6vYVWu-zj7jFx'),
-        add_headers(`Accept` = 'application/vnd.tbuilder.v1+json'),
-        content_type('application/json'))
+    GET(url = URL)
     
   }
   # Get the actual data

@@ -135,7 +135,7 @@ __Request Parameters:__
 
 > `street=3305+160th+Ave+SE&city=Bellevue&state=WA&benchmark=2020&format=json`
 
-The request parameters are further broken down into parts which are separated by an ampersand "&" symbol.  If we want to better understand how the API works, we can look at the [documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html/).  Doing that will inform us about what is expected in each parameter of the request.  It will also tell us that the API can work in a both a single record lookup, or in a batch mode.  Batch mode is outside the scope of this article, but might be fun to try, if you're interested.  Coming back to the parameters though, we can see the following:
+The request parameters are further broken down into parts which are separated by an ampersand, "&", symbol.  If we want to better understand how the API works, we can look at the [documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html/).  Doing so will tell what is expected in each parameter of the request.  It will also tell us that the API can work in a a single record mode, or in a batch mode.  Batch mode is outside the scope of this article, but might be fun to try, if you're interested.  Coming back to our parameters though, we can see the following:
 
 ```
 street=3305+160th+Ave+SE&
@@ -145,7 +145,12 @@ benchmark=2020&
 format=json
 ```
 
+This is pretty self-explanatory, but it's probably worth the effort of reading the docs if you intend to use this api.  Briefly though, in the way we're using it, we have split the street address from the City and State, replaced spaces with "+" symbols and, the anal-retentive will have noticed, we omitted the zipcode from the request.  Omitting the zip is possible because the docs state, 
 
+> "_Not all parts need to be specified_".  
 
+The "benchmark" parameter is specifying what version of data we want queried, in this case 2020 Census data and the "format" parameter is saying that we want the results returned to us in JSON.
+
+### R Code
 
 
