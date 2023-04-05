@@ -1,3 +1,13 @@
+---
+layout: post
+title: Fast Loops and Hashes in R (via Reticulate)
+date: 2021-04-04 11:00
+tags:
+  - R_Hacks
+  - tech
+  - Python
+---
+
 The R practitioners and data scientists that I speak with often work on mixed language teams and have at least a few colleagues using Python already.  They are always interested in finding ways to work more effectively with each other, but often are unaware of existing capabilities for incorporating Python into their own workflows. When they're aware of the possibility, often they are unsure **why** they should do so, or **what situations** lend themselves well to using Python instead of R. This post attempts to capture a use case in which an R user might find Python, via the reticulate R library, to be a useful tool.
 
 ## Some Assumptions
