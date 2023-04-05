@@ -30,7 +30,7 @@ In my experience, these assumptions are basically true. Yes, it's possible to wo
 
 I've written in the past on the topic of solving anagrams because I think it's a coding problem that exercises many elements of a language and encourages creative thinking. In looking at a toy problem like this, useful concepts  emerge that extend themselves well to solving other problems. 
 
-The problem can be described as follows.  Given a list of words...
+The challenge can be described as follows.  Given a list of words...
 
     anemic
     cinema
@@ -183,7 +183,9 @@ Then, from within our R code, we can call on the Python function using the `reti
   0.301   0.008   0.306 
 ```
 
-The performance difference is pretty significant.  From...
+The performance difference is pretty significant though.  
+
+From...
 
 ```
    user  system elapsed 
@@ -201,5 +203,6 @@ to...
 
 In summary, the point of this article isn't to advocate that we change from using R to using Python for our day-to-day work.  There are still very compelling reasons why I continue to use R for most of the data related work that I do.  However, there are occasions when using Python might be a viable way to solve a problem more elegantly than in R.  Given the ease with which we can mix the 2 together in our R code, it makes sense to explore those possibilities when they come up.
 
-`reticulate` is one of the [many](https://www.rstudio.com/about/rstudio-open-source-packages/) Open Source projects that Posit (formerly RStudio) contributes engineering time and resources to.  Additional information on using the `reticulate` can be found here, https://rstudio.github.io/reticulate/.  
+`reticulate` is one of the [many](https://www.rstudio.com/about/rstudio-open-source-packages/) Open Source projects that Posit (formerly RStudio) contributes engineering time and resources to.  Additional information on using the `reticulate` can be found here, [https://rstudio.github.io/reticulate/](https://rstudio.github.io/reticulate/).  
 
+I owe great thanks to Frank Warmerdam, who gave me my 1st anagram challenge many years ago, as a way to generate discussion and explain problem solving. 
