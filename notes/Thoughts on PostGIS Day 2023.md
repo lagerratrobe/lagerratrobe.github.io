@@ -1,7 +1,7 @@
 Thoughts on PostGIS Day 2023
 ============================
 
-I blocked my calendar on Nov 16th and spent an enjoyable few hours watching presentations from [PostGIS Day 2023](https://www.crunchydata.com/community/events/postgis-day-2023).  I wasn't able to catch all of them, as they started at 5 AM for me, but I was impressed with the ones I did see.  Paul Ramsey did his usual excellent job of hosting the event and it was very enjoyable to live in my old world for a little while.
+I blocked my calendar on Nov 16th and spent an enjoyable few hours watching presentations from [PostGIS Day 2023](https://www.crunchydata.com/community/events/postgis-day-2023).  I wasn't able to catch all of them, as they started at 5 AM for me, but I was impressed with the ones I did see.  Paul Ramsey did his usual excellent job of hosting the event and it was very enjoyable to live in my old world again, even for just a little while.
 
 A few of the presentations stood out for me and will serve as inspiration for future personal research and exploration.
 
