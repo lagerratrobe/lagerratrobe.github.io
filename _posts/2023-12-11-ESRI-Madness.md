@@ -3,7 +3,7 @@ layout: post
 title: ESRI Madness
 date: 2023-12-11 11:00
 tags:
-  - gis
+  - GIS
 ---
 
 I read about a cool new data set in the ArcUser ESRI rag, a new "Watershed Boundary Dataset".  I go to the link in the article, "https://shorturl.at.oBF36" and land on the arcgis.com page.  I click on the Data tab and I see that the data is broken up into 22 features, but there is no download option.  I go back to the original page and I see there is a "URL" link at the lower right.  I go there and I get some metadata about the data set.  I still can't see any of the data,   but there's a "Sources" link though.  I follow it and there is another link to a feature server, "HU02_WBD (FeatureServer)".  I follow that and I get to a page that says "Token Required".  At this point, I've wasted 15 minutes of my life that I won't get back so I try something else.  
