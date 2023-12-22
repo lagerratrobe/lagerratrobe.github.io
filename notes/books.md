@@ -11,3 +11,4 @@ Most of these are online in Web-based format
 	
 - [Shiny Basics](https://shiny.posit.co/r/getstarted/shiny-basics/lesson3/)
 - [Art of Data Science](https://bookdown.org/rdpeng/artofdatascience/what-are-the-goals-of-formal-modeling.html)
+- R Graph Gallery: [(not technically a book, but still good)](https://r-graph-gallery.com/best-r-chart-examples.html)
