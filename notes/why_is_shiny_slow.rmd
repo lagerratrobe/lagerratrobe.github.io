@@ -1,0 +1,29 @@
+# "Why is your Shiny app slow?"
+
+So your Shiny app is slow?  Well, I hate to break it to you, but it's probably because of one, or both, of these reasons.
+
+A) Inefficient code being run in the app (probably _your_ code, BTW)
+B) Too much calculation/processing is happening in the Shiny app
+
+I recently went through this myself after making some changes to my [weather_dashboard](https://roger-andre.shinyapps.io/weather_dashboard/) pet project.   They were poorly thought through, made the dashboard slow and were generally a bad idea in the 1st place.  However, while doing the work to undo them, I thought it would be a good to show *HOW* someone might go about addressing a similar situation.  After all, this is a common scenario - a dashboard that's been around for awhile, had continuous \*improvements\* over time and now has become slow.  What I think is important in solving this sort of thing aren't the tools, but the philosophical approach that's used.
+
+## Focus on the right thing...
+
+Often when slow dashboards are brought up, the intent is to find some magic runtime settings in the application framework (Shiny in this case), or server tweaks, which will gloss over the real problems.  While this sometimes works out, generally there are better solutions - if we actually know what is going on in the app!
+
+#### Step 1: Understand what your application is doing
+
+Seems like a no-brainer, right?  So for example, my _weather_dashboard_ app does the following...
+
+```{mermaid}
+%%| label: fig-mermaid
+%%| fig-width: 6
+%%| fig-cap: |
+flowchart LR
+  A["getData()"] --> B["cleanData()"]
+  B --> C{filtered_by_city}
+  C --> D("createPlot()")
+  C --> E("createTable()")
+```
+
+...surprisingly though, people frequently seem unable to 
